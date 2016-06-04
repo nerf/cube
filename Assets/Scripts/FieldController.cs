@@ -16,15 +16,15 @@ public class FieldController : MonoBehaviour {
 
 	void Start () {
 		System.Random random = new System.Random();
-		float rowStartPosition = -((numberOfRows / 2f) - (transform.localScale.y / 2f));
-		float colStartPosition = -((cubesPerRow / 2f) - (transform.localScale.x / 2f));
+		float rowStartPosition = transform.position.y - (numberOfRows / 2f) + (transform.localScale.y / 2f);
+		float colStartPosition = transform.position.x - (cubesPerRow / 2f) + (transform.localScale.x / 2f);
 
 
 		for (int row = 0; row < numberOfRows; row++) {
-			float fieldY = rowStartPosition + row; // + (cubesOffset * row);
-			Debug.Log ("rows " + fieldY);
+			float fieldY = rowStartPosition + row + (cubesOffset * row);
+
 			for (int col = 0; col < cubesPerRow; col++) {
-				float fieldX = colStartPosition + col; // + (cubesOffset * col);
+				float fieldX = colStartPosition + col + (cubesOffset * col);
 				Material color = myMaterials[random.Next (0, myMaterials.Length)];
 				GameObject newCube = (GameObject)Instantiate (cube, new Vector3 (fieldX, fieldY), Quaternion.identity);
 				newCube.transform.parent = transform;
