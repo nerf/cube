@@ -16,8 +16,8 @@ public class FieldController : MonoBehaviour {
 
 	void Start () {
 		System.Random random = new System.Random();
-		float rowStartPosition = -((numberOfRows / 2f) - 0.5f);
-		float colStartPosition = -((cubesPerRow / 2f) - 0.5f);
+		float rowStartPosition = -((numberOfRows / 2f) - (transform.localScale.y / 2f));
+		float colStartPosition = -((cubesPerRow / 2f) - (transform.localScale.x / 2f));
 
 
 		for (int row = 0; row < numberOfRows; row++) {
